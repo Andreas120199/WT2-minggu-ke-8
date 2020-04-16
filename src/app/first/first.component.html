@@ -1,0 +1,32 @@
+<div class="button-holder">
+    <button mat-raised-button color="primary" routerLink="/karyawan">
+      Tambah Karyawan
+    </button>
+  </div>
+  <div class="table">
+    <table mat-table [dataSource]="karyawans" class="mat-elevation-z8">
+      <ng-container matColumnDef="nama">
+        <th mat-header-cell *matHeaderCellDef>Nama Karyawan</th>
+        <td mat-cell *matCellDef="let karyawan">{{ karyawan.nama }}</td>
+      </ng-container>
+      <ng-container matColumnDef="gajipokok">
+        <th mat-header-cell *matHeaderCellDef>Gaji Pokok Karyawan</th>
+        <td mat-cell *matCellDef="let karyawan">{{ karyawan.gajipokok }}</td>
+      </ng-container>
+      <ng-container matColumnDef="tunjangan">
+        <th mat-header-cell *matHeaderCellDef>Tunjangan Karyawan</th>
+        <td mat-cell *matCellDef="let karyawan">{{ karyawan.tunjangan }}</td>
+      </ng-container>
+      <ng-container matColumnDef="divisi">
+        <th mat-header-cell *matHeaderCellDef>Divisi Karyawan</th>
+        <td mat-cell *matCellDef="let karyawan">{{ karyawan.divisi }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [routerLink]="'/karyawan/' + row._id"
+      ></tr>
+    </table>
+  </div>
+  
